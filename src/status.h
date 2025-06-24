@@ -1,0 +1,13 @@
+#ifndef INCLUDE_SRC_STATUS_H_
+#define INCLUDE_SRC_STATUS_H_
+
+typedef enum Status {
+  S_CARRY,
+  S_ZERO,
+  S_INTERRUPT_DISABLE,
+  S_DECIMAL,
+  S_OVERFLOW,
+  S_NEGATIVE
+} Status;
+
+#endif // INCLUDE_SRC_STATUS_H_
