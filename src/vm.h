@@ -1,7 +1,6 @@
 #ifndef INCLUDE_SRC_VM_H_
 #define INCLUDE_SRC_VM_H_
 
-#include <cstdint>
 #include <stdint.h>
 
 // specs sourced from
