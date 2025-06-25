@@ -6,6 +6,7 @@ An emulator for the MOS Technology 6502 processor.
 
 - 16-bit
 - Two "index" registers x and y.
+- Little-endian
 - 256 bytes of memory in zero page between 0x0 and 0xFF.
 - 0x10000 bytes of memory total.
 - 256 bytes of stack memory(tiny stack) meaning 8-bit stack pointer stored between 0x100 and 0x1FF. Small stack is interesting since it means the stack isn't used in the same way that we use it today.

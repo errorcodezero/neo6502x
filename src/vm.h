@@ -5,6 +5,8 @@
 #include <stdint.h>
 
 #define VM_MEMORY_SIZE 0x10000
+#define VM_MEMORY_START 0x0
+#define VM_MEMORY_END 0xffff
 #define VM_ZERO_PAGE_START 0x0
 #define VM_ZERO_PAGE_END 0xFF
 #define VM_STACK_START 0x100
@@ -15,8 +17,12 @@
 typedef struct VirtualMachine {
   uint8_t accum;
   Status status;
-  uint16_t program_ctr;
-  uint8_t stack_ptr;
+  // cool little optimization
+  // you now deref the stack program counter in order to access the memory
+  // rather than indexing into the array with it
+  // same with the stack
+  uint8_t *program_ctr;
+  uint8_t *stack_ptr;
   uint8_t reg_x;
   uint8_t reg_y;
   uint8_t *memory;
