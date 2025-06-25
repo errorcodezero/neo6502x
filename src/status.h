@@ -6,6 +6,7 @@ typedef enum Status {
   S_ZERO,
   S_INTERRUPT_DISABLE,
   S_DECIMAL,
+  S_BREAK,
   S_OVERFLOW,
   S_NEGATIVE
 } Status;
