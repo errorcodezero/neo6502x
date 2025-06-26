@@ -1,5 +1,4 @@
 #include "vm.h"
-#include "bool_ops.h"
 #include <stdint.h>
 #include <stdlib.h>
 

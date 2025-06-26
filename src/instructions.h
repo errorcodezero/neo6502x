@@ -70,7 +70,7 @@ typedef enum InstructionNames {
   I_BRK,
   I_NOP,
   I_RTI,
-} Instructions;
+} InstructionNames;
 
 typedef struct Instruction {
   InstructionNames name;

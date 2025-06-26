@@ -13,3 +13,22 @@ An emulator for the MOS Technology 6502 processor.
 - Memory indexing system that is actually pretty cool and allows for fast array ops and other interesting things:
     - Essentially, memory address after instruction plus value in index register and that's the memory address used in a memory indexed command.
     - Zero-page uses add without carry and full memory uses add with carry.
+
+## Instruction Completion
+
+| Instruction | Status | Instruction | Status | Instruction | Status | Instruction | Status |
+| :---------- | :----- | :---------- | :----- | :---------- | :----- | :---------- | :----- |
+| ADC         | ❌     | AND         | ✅     | ASL         | ❌     | BCC         | ❌     |
+| BCS         | ❌     | BEQ         | ❌     | BIT         | ❌     | BMI         | ❌     |
+| BNE         | ❌     | BPL         | ❌     | BRK         | ❌     | BVC         | ❌     |
+| BVS         | ❌     | CLC         | ❌     | CLD         | ❌     | CLI         | ❌     |
+| CLV         | ❌     | CMP         | ❌     | CPX         | ❌     | CPY         | ❌     |
+| DEC         | ❌     | DEX         | ❌     | DEY         | ❌     | EOR         | ✅     |
+| INC         | ❌     | INX         | ❌     | INY         | ❌     | JMP         | ❌     |
+| JSR         | ❌     | LDA         | ❌     | LDX         | ❌     | LDY         | ❌     |
+| LSR         | ❌     | NOP         | ❌     | ORA         | ✅     | PHA         | ❌     |
+| PHP         | ❌     | PLA         | ❌     | PLP         | ❌     | ROL         | ❌     |
+| ROR         | ❌     | RTI         | ❌     | RTS         | ❌     | SBC         | ❌     |
+| SEC         | ❌     | SED         | ❌     | SEI         | ❌     | STA         | ❌     |
+| STX         | ❌     | STY         | ❌     | TAX         | ❌     | TAY         | ❌     |
+| TSX         | ❌     | TXA         | ❌     | TXS         | ❌     | TYA         | ❌     |

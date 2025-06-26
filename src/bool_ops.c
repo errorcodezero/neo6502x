@@ -1,10 +1,11 @@
 #include "bool_ops.h"
 #include "utils.h"
 #include "vm.h"
+#include <assert.h>
 #include <stdlib.h>
 
 void bool_ops(VirtualMachine *vm, AddressingMode mode,
-              enum BooleanOperator bool_op) {
+              InstructionNames bool_op) {
   uint8_t *op1 = NULL;
   uint8_t *op2 = NULL;
   switch (mode) {
@@ -69,15 +70,18 @@ void bool_ops(VirtualMachine *vm, AddressingMode mode,
   }
   }
   vm->program_ctr++;
+  assert(bool_op == I_AND || bool_op == I_EOR || bool_op == I_ORA);
   switch (bool_op) {
-  case AND:
+  case I_AND:
     vm->accum = *op1 | *op2;
     break;
-  case EOR:
+  case I_EOR:
     vm->accum = *op1 ^ *op2;
     break;
-  case ORA:
+  case I_ORA:
     vm->accum = *op1 | *op2;
+    break;
+  default:
     break;
   }
   if (vm->accum >> 7 == 1) {
@@ -88,11 +92,11 @@ void bool_ops(VirtualMachine *vm, AddressingMode mode,
 }
 
 void and_op(VirtualMachine *vm, AddressingMode mode) {
-	bool_ops(vm, mode, AND);
+  bool_ops(vm, mode, I_AND);
 }
 void eor_op(VirtualMachine *vm, AddressingMode mode) {
-	bool_ops(vm, mode, EOR);
+  bool_ops(vm, mode, I_EOR);
 }
 void ora_op(VirtualMachine *vm, AddressingMode mode) {
-	bool_ops(vm, mode, ORA);
+  bool_ops(vm, mode, I_ORA);
 }
