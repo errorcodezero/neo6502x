@@ -32,6 +32,17 @@ typedef enum InstructionNames {
   I_ORA,
   I_BIT,
 
+  // Shifts
+  I_ASL,
+  I_LSR,
+  I_ROL,
+  I_ROR,
+
+  // Jumps
+  I_JMP,
+  I_JSR,
+  I_RTS,
+
   // Arithmetic
   I_ADC,
   I_SBC,

@@ -37,11 +37,16 @@ void shift_ops(VirtualMachine *vm, AddressingMode mode,
     break;
   }
   }
-  vm->accum = *op << 1;
-  set_status_flag(vm, S_CARRY, *op >> 7);
-  if (check_u8_negative(vm->accum)) {
-    set_status_flag(vm, S_NEGATIVE, true);
-  } else if (vm->accum == 0) {
-    set_status_flag(vm, S_ZERO, true);
+  switch (shift_op) {
+    default:
+      break;
+    
+    vm->accum = *op << 1;
+    set_status_flag(vm, S_CARRY, *op >> 7);
+    if (check_u8_negative(vm->accum)) {
+      set_status_flag(vm, S_NEGATIVE, true);
+    } else if (vm->accum == 0) {
+      set_status_flag(vm, S_ZERO, true);
+    }
   }
 }
