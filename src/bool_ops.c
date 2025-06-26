@@ -1,4 +1,5 @@
 #include "bool_ops.h"
+#include "status.h"
 #include "utils.h"
 #include "vm.h"
 #include <assert.h>
@@ -16,12 +17,12 @@ void bool_ops(VirtualMachine *vm, AddressingMode mode,
   }
   case AM_ZERO_PAGE: {
     op1 = &vm->accum;
-    op2 = &vm->memory[vm->memory[++vm->program_ctr]];
+    op2 = &vm->memory[++vm->program_ctr];
     break;
   }
   case AM_ZERO_PAGE_X: {
     op1 = &vm->accum;
-    op2 = &vm->memory[vm->memory[++vm->program_ctr] + vm->reg_x];
+    op2 = &vm->memory[++vm->program_ctr] + vm->reg_x;
     break;
   }
   case AM_ABSOLUTE: {
@@ -85,8 +86,8 @@ void bool_ops(VirtualMachine *vm, AddressingMode mode,
     break;
   }
   if (vm->accum >> 7 == 1) {
-    vm->status = S_NEGATIVE;
   } else if (vm->accum == 0) {
+    set_status_flag(vm, S_ZERO, true);
     vm->status = S_ZERO;
   }
 }
