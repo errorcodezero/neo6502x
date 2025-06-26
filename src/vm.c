@@ -1,4 +1,5 @@
 #include "vm.h"
+#include "bool_ops.h"
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -14,6 +15,7 @@ VirtualMachine init_vm() {
   return vm;
 }
 
-void step() {
-  return;
-}
+void step_vm() { return; }
+
+// dealing with cpu cycles later
+// void cycle_vm(VirtualMachine *vm) { return; }

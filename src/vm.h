@@ -1,6 +1,7 @@
 #ifndef INCLUDE_SRC_VM_H_
 #define INCLUDE_SRC_VM_H_
 
+#include "addressing.h"
 #include "status.h"
 #include <stdint.h>
 
@@ -26,6 +27,7 @@ typedef struct VirtualMachine {
 
 VirtualMachine init_vm();
 void delete_vm(VirtualMachine *vm);
-void step();
+void cycle_vm(VirtualMachine *vm);
+void step_vm();
 
 #endif // INCLUDE_SRC_VM_H_
