@@ -2,7 +2,9 @@
 #define INCLUDE_SRC_INSTRUCTIONS_H_
 
 // Sourced from http://www.6502.org/users/obelisk/6502/instructions.html
-typedef enum Instructions {
+#include "vm.h"
+#include <stdint.h>
+typedef enum InstructionNames {
   // Load/Store ops
   I_LDA,
   I_LDX,
@@ -69,5 +71,11 @@ typedef enum Instructions {
   I_NOP,
   I_RTI,
 } Instructions;
+
+typedef struct Instruction {
+  InstructionNames name;
+  void (*execute)(VirtualMachine *vm);
+  uint8_t cycles;
+} Instruction;
 
 #endif // INCLUDE_SRC_INSTRUCTIONS_H_

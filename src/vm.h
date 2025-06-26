@@ -17,17 +17,15 @@
 typedef struct VirtualMachine {
   uint8_t accum;
   Status status;
-  // cool little optimization
-  // you now deref the stack program counter in order to access the memory
-  // rather than indexing into the array with it
-  // same with the stack
-  uint8_t *program_ctr;
-  uint8_t *stack_ptr;
+  uint16_t program_ctr;
+  uint8_t stack_ptr;
   uint8_t reg_x;
   uint8_t reg_y;
   uint8_t *memory;
 } VirtualMachine;
 
 VirtualMachine init_vm();
+void delete_vm(VirtualMachine *vm);
+void step();
 
 #endif // INCLUDE_SRC_VM_H_

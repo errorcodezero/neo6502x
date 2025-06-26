@@ -2,10 +2,18 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+void delete_vm(VirtualMachine *vm) {
+  free(vm->memory);
+  vm->memory = NULL;
+}
+
 VirtualMachine init_vm() {
-	VirtualMachine vm = {0};
-	vm.memory = malloc(sizeof(uint8_t) * VM_MEMORY_SIZE);
-	vm.stack_ptr = vm.memory + VM_STACK_START;
-	vm.program_ctr = vm.memory + VM_MEMORY_END;
-	return vm;
+  VirtualMachine vm = {0};
+  vm.memory = malloc(sizeof(uint8_t) * VM_MEMORY_SIZE);
+  vm.program_ctr = VM_MEMORY_END;
+  return vm;
+}
+
+void step() {
+  return;
 }
