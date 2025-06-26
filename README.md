@@ -18,7 +18,7 @@ An emulator for the MOS Technology 6502 processor.
 
 | Instruction | Status | Instruction | Status | Instruction | Status | Instruction | Status |
 | :---------- | :----- | :---------- | :----- | :---------- | :----- | :---------- | :----- |
-| ADC         | ❌     | AND         | ✅     | ASL         | ❌     | BCC         | ❌     |
+| ADC         | ❌     | AND         | ✅     | ASL         | ✅     | BCC         | ❌     |
 | BCS         | ❌     | BEQ         | ❌     | BIT         | ❌     | BMI         | ❌     |
 | BNE         | ❌     | BPL         | ❌     | BRK         | ❌     | BVC         | ❌     |
 | BVS         | ❌     | CLC         | ❌     | CLD         | ❌     | CLI         | ❌     |

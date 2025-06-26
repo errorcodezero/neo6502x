@@ -1,5 +1,6 @@
 #include "shift_ops.h"
 #include "addressing.h"
+#include "status.h"
 #include "utils.h"
 #include <stdlib.h>
 
@@ -37,8 +38,10 @@ void shift_ops(VirtualMachine *vm, AddressingMode mode,
   }
   }
   vm->accum = *op << 1;
-  vm->status = *op >> 7;
-  if (vm->accum == 0) {
-    vm->status = S_ZERO;
+  set_status_flag(vm, S_CARRY, *op >> 7);
+  if (check_u8_negative(vm->accum)) {
+    set_status_flag(vm, S_NEGATIVE, true);
+  } else if (vm->accum == 0) {
+    set_status_flag(vm, S_ZERO, true);
   }
 }

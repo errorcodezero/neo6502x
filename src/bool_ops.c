@@ -85,10 +85,10 @@ void bool_ops(VirtualMachine *vm, AddressingMode mode,
   default:
     break;
   }
-  if (vm->accum >> 7 == 1) {
+  if (check_u8_negative(vm->accum)) {
+    set_status_flag(vm, S_NEGATIVE, true);
   } else if (vm->accum == 0) {
     set_status_flag(vm, S_ZERO, true);
-    vm->status = S_ZERO;
   }
 }
 
