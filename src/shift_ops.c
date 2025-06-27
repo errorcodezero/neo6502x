@@ -1,5 +1,6 @@
 #include "shift_ops.h"
 #include "addressing.h"
+#include "instructions.h"
 #include "status.h"
 #include "utils.h"
 #include <stdlib.h>
@@ -38,9 +39,7 @@ void shift_ops(VirtualMachine *vm, AddressingMode mode,
   }
   }
   switch (shift_op) {
-    default:
-      break;
-    
+  case I_ASL: {
     vm->accum = *op << 1;
     set_status_flag(vm, S_CARRY, *op >> 7);
     if (check_u8_negative(vm->accum)) {
@@ -48,5 +47,24 @@ void shift_ops(VirtualMachine *vm, AddressingMode mode,
     } else if (vm->accum == 0) {
       set_status_flag(vm, S_ZERO, true);
     }
+    break;
   }
+  case I_ROL: {
+    vm->accum = *op >> 1;
+    set_status_flag(vm, S_CARRY, *op << 7);
+    if (check_u8_negative(vm->accum)) {
+      set_status_flag(vm, S_NEGATIVE, true);
+    } else if (vm->accum == 0) {
+      set_status_flag(vm, S_ZERO, true);
+    }
+    break;
+  }
+  default: {
+    break;
+  }
+  }
+}
+
+void asl_op(VirtualMachine *vm, AddressingMode mode) {
+  shift_ops(vm, mode, I_ASL);
 }

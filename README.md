@@ -27,7 +27,7 @@ An emulator for the MOS Technology 6502 processor.
 | INC         | ❌     | INX         | ❌     | INY         | ❌     | JMP         | ❌     |
 | JSR         | ❌     | LDA         | ❌     | LDX         | ❌     | LDY         | ❌     |
 | LSR         | ❌     | NOP         | ❌     | ORA         | ✅     | PHA         | ❌     |
-| PHP         | ❌     | PLA         | ❌     | PLP         | ❌     | ROL         | ❌     |
+| PHP         | ❌     | PLA         | ❌     | PLP         | ❌     | ROL         | ✅     |
 | ROR         | ❌     | RTI         | ❌     | RTS         | ❌     | SBC         | ❌     |
 | SEC         | ❌     | SED         | ❌     | SEI         | ❌     | STA         | ❌     |
 | STX         | ❌     | STY         | ❌     | TAX         | ❌     | TAY         | ❌     |
