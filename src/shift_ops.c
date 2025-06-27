@@ -51,7 +51,8 @@ void shift_ops(VirtualMachine *vm, AddressingMode mode,
   }
   case I_ROL: {
     vm->accum = *op >> 1;
-    set_status_flag(vm, S_CARRY, *op << 7);
+    uint8_t carry_flag = *op << 7;
+    set_status_flag(vm, S_CARRY, carry_flag);
     if (check_u8_negative(vm->accum)) {
       set_status_flag(vm, S_NEGATIVE, true);
     } else if (vm->accum == 0) {
