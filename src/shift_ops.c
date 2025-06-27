@@ -68,3 +68,7 @@ void shift_ops(VirtualMachine *vm, AddressingMode mode,
 void asl_op(VirtualMachine *vm, AddressingMode mode) {
   shift_ops(vm, mode, I_ASL);
 }
+
+void rol_op(VirtualMachine *vm, AddressingMode mode) {
+  shift_ops(vm, mode, I_ROL);
+}
