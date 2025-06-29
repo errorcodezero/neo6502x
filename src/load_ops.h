@@ -1,0 +1,4 @@
+#ifndef INCLUDE_SRC_LOAD_OPS_H_
+#define INCLUDE_SRC_LOAD_OPS_H_
+
+#endif // INCLUDE_SRC_LOAD_OPS_H_

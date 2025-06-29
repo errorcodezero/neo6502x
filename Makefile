@@ -2,7 +2,7 @@ SRC_DIR = src
 BUILD_DIR = build
 EXE = neo6502x
 
-SRC = main.c vm.c utils.c status.c bool_ops.c shift_ops.c
+SRC = main.c vm.c utils.c status.c bool_ops.c shift_ops.c load_ops.c
 OBJ = $(SRC:%.c=$(BUILD_DIR)/%.o)
 
 CFLAGS += -std=c23 -Wall -Wextra -Werror -pedantic
